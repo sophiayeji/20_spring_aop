@@ -6,34 +6,51 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class HomeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	//private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
+	@Autowired
+	private Boss boss;
+	
+	@Autowired
+	private Manager manager;
+	
+	@Autowired
+	private Employee employee;
+	
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+	public String home() {
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		boss.work();
+		manager.work();
+		employee.work();
 		
-		String formattedDate = dateFormat.format(date);
+		System.out.println("\n\n");
 		
-		model.addAttribute("serverTime", formattedDate );
+		boss.getWorkingTime();
+		manager.getWorkingTime();
+		employee.getWorkingTime();
+		
+		System.out.println("\n\n");
+		
+		boss.getInfo("사장", 1200);
+		manager.getInfo("매니저", 700);
+		employee.getInfo("직원", 300);
+		
+		System.out.println("\n\n");
+		employee.getError();
 		
 		return "home";
+		
 	}
 	
 }

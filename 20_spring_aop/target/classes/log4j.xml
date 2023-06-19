@@ -10,6 +10,15 @@
 		</layout>
 	</appender>
 	
+	<!-- DailyFile Appenders -->
+	<appender name="dailyFileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="C:\\19_web_log\\logTest" />
+		<layout class="org.apache.log4j.PatternLayout">
+		  <param name="DatePattern"   value="'.'yyyy-MM-dd-HH-mm"/>
+		  <param name="ConversionPattern"   value="[%d{HH:mm:ss}][%-5p](%F:%L)-%m%n"/>
+		</layout>
+	</appender>
+	
 	<!-- Application Loggers -->
 	<logger name="com.spring.aop">
 		<level value="info" />
@@ -36,6 +45,7 @@
 	<root>
 		<priority value="warn" />
 		<appender-ref ref="console" />
+		<appender-ref ref="dailyFileAppender" />
 	</root>
 	
 </log4j:configuration>
