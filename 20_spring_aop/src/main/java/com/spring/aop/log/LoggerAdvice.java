@@ -32,12 +32,12 @@ public class LoggerAdvice {
 	</appender>
 	
 	
-	3) log4j.xml 설정 파일에서 appender 추가
+	3) log4j.xml 설정 파일에서 appender 추가<여기서 맨밑에 내용만 복사 붙여놓기해서 추가>
 	<!-- Root Logger -->
 	<root>
 		<priority value="warn" />
 		<appender-ref ref="console" />
-		<appender-ref ref="dailyFileAppender" />  
+		<appender-ref ref="dailyFileAppender" /> 
 	</root>
 
  */

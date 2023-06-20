@@ -99,10 +99,10 @@ import org.springframework.stereotype.Component;
 	
 	2) servlet-context.xml 파일에 aop autoproxy 설정 적용
 	
-		xmlns:aop="http://www.springframework.org/schema/aop"							
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+		xmlns:aop="http://www.springframework.org/schema/aop"	<context밑에>						
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd <xsi:schemaLocation 맨밑에>
 	
-		<aop:aspectj-autoproxy />
+		<aop:aspectj-autoproxy></aop:aspectj-autoproxy> <맨마지막에> 
 	
 	
 	3) Advice 클래스에 @Component 및 @Aspect 어노테이션 지정
